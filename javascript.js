@@ -32,6 +32,9 @@ makeGrid(16,16)
 
 btn.addEventListener('click', () => {
     let v = input1.value
+    if (v > 100) {
+    alert("Please Enter A Number Lower Than 100")
+    } else if (v <= 100) {
     container.innerHTML = ""
     makeGrid(v, v)
-})
+}});
