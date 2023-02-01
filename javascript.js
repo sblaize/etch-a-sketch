@@ -1,5 +1,23 @@
 const container = document.getElementById('container');
 
+const newDiv = document.createElement('div');
+newDiv.setAttribute = ('id', 'newDiv')
+const button = document.createElement('button');
+const input = document.createElement('input');
+input.setAttribute('type', 'text')
+button.textContent = "Enter Number Here"
+newDiv.appendChild(button).id = "button";
+newDiv.appendChild(input).id = "input";
+document.body.insertBefore(newDiv, container);
+
+let input1 = document.getElementById('input');
+let btn = document.getElementById('button');
+input1.setAttribute('value', '16')
+
+function deleteThis() {
+    cell.remove()
+}
+
 function makeGrid(rows, cols) {
     container.style.setProperty('--grid-rows', rows);
     container.style.setProperty('--grid-cols', cols);
@@ -8,25 +26,16 @@ function makeGrid(rows, cols) {
         cell.addEventListener("mouseover", () => {
             cell.style.backgroundColor = "blue"
         });
+        cell.remove();
         container.appendChild(cell).className = "grid-item";
     };
-};
+    };
 
-let input = document.getElementsByTagName('input');
-let button = document.getElementsByTagName('button');
-
-
-document.body.onload = addElement;
-
-function addElement() {
-const newDiv = document.createElement('div');
-newDiv.setAttribute = ('id', 'newDiv')
-const button = document.createElement('button');
-const input = document.createElement('input');
-button.textContent = "Enter Number Here"
-newDiv.appendChild(button).className = "button";
-newDiv.appendChild(input).className = "input";
-document.body.insertBefore(newDiv, container);
-}
+makeGrid(16,16)
 
 
+btn.addEventListener('click', () => {
+    let v = input1.value
+    container.innerHTML = ""
+    makeGrid(v, v)
+})
