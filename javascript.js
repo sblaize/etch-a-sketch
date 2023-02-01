@@ -14,6 +14,14 @@ let input1 = document.getElementById('input');
 let btn = document.getElementById('button');
 input1.setAttribute('value', '16')
 
+const randomColor = function generateRandomColor(){
+    let maxVal = 0xFFFFFF; // 16777215
+    let randomNumber = Math.random() * maxVal; 
+    randomNumber = Math.floor(randomNumber);
+    randomNumber = randomNumber.toString(16);
+    let randColor = randomNumber.padStart(6, 0);   
+    return `#${randColor.toUpperCase()}`
+}
 
 function makeGrid(rows, cols) {
     container.style.setProperty('--grid-rows', rows);
@@ -21,7 +29,7 @@ function makeGrid(rows, cols) {
     for (c = 0; c < (rows * cols); c++) {
         let cell = document.createElement('div');
         cell.addEventListener("mouseover", () => {
-            cell.style.backgroundColor = "blue"
+            cell.style.backgroundColor = randomColor();
         });
         container.appendChild(cell).className = "grid-item";
     };
