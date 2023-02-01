@@ -29,3 +29,9 @@ function makeGrid(rows, cols) {
 
 makeGrid(16,16)
 
+
+btn.addEventListener('click', () => {
+    let v = input1.value
+    container.innerHTML = ""
+    makeGrid(v, v)
+})
