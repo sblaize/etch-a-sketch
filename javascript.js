@@ -14,9 +14,6 @@ let input1 = document.getElementById('input');
 let btn = document.getElementById('button');
 input1.setAttribute('value', '16')
 
-function deleteThis() {
-    cell.remove()
-}
 
 function makeGrid(rows, cols) {
     container.style.setProperty('--grid-rows', rows);
@@ -26,16 +23,9 @@ function makeGrid(rows, cols) {
         cell.addEventListener("mouseover", () => {
             cell.style.backgroundColor = "blue"
         });
-        cell.remove();
         container.appendChild(cell).className = "grid-item";
     };
     };
 
 makeGrid(16,16)
 
-
-btn.addEventListener('click', () => {
-    let v = input1.value
-    container.innerHTML = ""
-    makeGrid(v, v)
-})
